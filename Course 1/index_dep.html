@@ -1,0 +1,54 @@
+<html>
+
+<head>
+</head>
+
+<body>
+  <div id="page-header">
+      <h1>Hello World!</h1>
+  </div>
+  <p class='main-paragraph'> lorem main paragraph </p>
+  <p>second paragraph</p>
+
+</body>
+
+
+<script src='https://d3js.org/d3.v4.min.js'></script>
+<script>
+  let header = d3.select('#page-header')
+  console.log(header.node())
+
+  d3.selectAll('p').text("New text for everyone!")
+
+  let clients = [
+    {
+      Name: 'John',
+      Weight: 185,
+      Height: 98
+    },
+    {
+      Name: 'Chris',
+      Weight: 170,
+      Height: 90
+    }]
+
+
+
+
+  function getWeightClass(client) {
+      if (client.Weight > 250) {
+          return "over weight"
+      } else if (client.Weight < 150) {
+          return "under weight"
+      } else {
+          return "normal weight"
+      }
+  }
+
+    clients.forEach((client) => {
+      document.write(client.Name + ': ' + client.Weight + ', ' + getWeightClass(client) + '<br>');
+    })
+
+
+</script>
+</html>
